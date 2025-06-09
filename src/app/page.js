@@ -349,9 +349,9 @@ export default function Home() {
             <div className="bg-[#fafafa] rounded-lg overflow-hidden shadow-xl transform hover:scale-105 transition-all">
               <div className="h-48 bg-gray-300"></div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#171717] mb-3">Personal Training</h3>
+                <h3 className="text-2xl font-bold text-[#171717] mb-3">Lorem ipsum</h3>
                 <p className="text-gray-700 mb-4">
-                  Treinos individuais personalizados para suas necessidades e objetivos específicos.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p>
                 <button className="text-[#05a6b5] font-semibold hover:underline">
                   Saiba mais →
@@ -363,9 +363,9 @@ export default function Home() {
             <div className="bg-[#fafafa] rounded-lg overflow-hidden shadow-xl transform hover:scale-105 transition-all">
               <div className="h-48 bg-gray-300"></div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#171717] mb-3">Treino em Grupo</h3>
+                <h3 className="text-2xl font-bold text-[#171717] mb-3">Lorem ipsum</h3>
                 <p className="text-gray-700 mb-4">
-                  Aulas dinâmicas em pequenos grupos para motivação extra e resultados em equipe.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p>
                 <button className="text-[#05a6b5] font-semibold hover:underline">
                   Saiba mais →
@@ -377,9 +377,9 @@ export default function Home() {
             <div className="bg-[#fafafa] rounded-lg overflow-hidden shadow-xl transform hover:scale-105 transition-all">
               <div className="h-48 bg-gray-300"></div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#171717] mb-3">Consultoria Online</h3>
+                <h3 className="text-2xl font-bold text-[#171717] mb-3">Lorem ipsum</h3>
                 <p className="text-gray-700 mb-4">
-                  Acompanhamento completo à distância com planos de treino e nutrição.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p>
                 <button className="text-[#05a6b5] font-semibold hover:underline">
                   Saiba mais →
@@ -488,7 +488,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="font-space text-gray-700 mb-4">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat et mauris a porta."
+                &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat et mauris a porta.&quot;
               </p>
               <p className="font-space font-bold text-[#171717]">Lorem ipsum</p>
             </div>
@@ -502,7 +502,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="font-space text-gray-700 mb-4">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat et mauris a porta."
+                &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat et mauris a porta.&quot;
               </p>
               <p className="font-space font-bold text-[#171717]">Lorem ipsum</p>
             </div>
@@ -516,7 +516,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="font-space text-gray-700 mb-4">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat et mauris a porta."
+                &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat et mauris a porta.&quot;
               </p>
               <p className="font-space font-bold text-[#171717]">Lorem ipsum</p>
             </div>
