@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { BicepsFlexed, CircleCheck } from 'lucide-react'
+import { Apple, BicepsFlexed, CircleCheck, Dumbbell, HeartPulse } from 'lucide-react'
 import "swiper/css"
 import "swiper/css/navigation"
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -100,7 +100,7 @@ export default function Home() {
     <div className="space-y-4 mb-10">
       <div className="flex items-start space-x-3">
         <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
-        <div className="text-white">
+        <div className="font-space text-white">
           <p className="font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
@@ -109,7 +109,7 @@ export default function Home() {
       <div className="flex items-start space-x-3">
         <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
         <div className="text-white">
-          <p className="font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p className="font-space font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@ export default function Home() {
                 musculação e condicionamento físico. Meu objetivo é ajudar você a alcançar o 
                 melhor da sua forma física.
               </p>
-              <ul className="space-y-3">
+              <ul className="font-space space-y-3">
                 <li className="flex items-center">
                   <div className="flex items-start space-x-3">
                     <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
@@ -186,6 +186,95 @@ export default function Home() {
         </div>
       </section>
 
+<section
+  id="experiencia"
+  className="grid grid-cols-1 md:grid-cols-3 gap-10 p-6 md:p-20 bg-[#000000] overflow-hidden"
+>
+  {/* Card 1 */}
+<div className="rounded-lg p-[1px] bg-gradient-to-br from-black to-[#05a6b5]">
+  <div className="bg-[#111111] rounded-lg overflow-hidden shadow-xl transform transition-all">
+    <div className="h-48 w-full relative">
+      <Image 
+        src='/hipertrofia.png'
+        alt='Recuperação'
+        fill
+        className="object-cover"
+      />
+    </div>
+    <div className="p-6">
+      <div className='flex gap-2'>
+      <Dumbbell className="w-6 h-6 text-[#05a6b5]"/>
+      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Lorem ipsum</h3>
+      </div>
+      <p className="text-[#ffffff] mb-4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+      <div className="col-span-full flex justify-center mt-4">
+        <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
+          QUERO EVOLUIR
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {/* Card 2 */}
+<div className="rounded-lg p-[1px] bg-gradient-to-br from-black to-[#05a6b5]">
+  <div className="bg-[#111111] rounded-lg overflow-hidden shadow-xl transform transition-all">
+    <div className="h-48 w-full relative">
+      <Image 
+        src='/emagrecimento.png'
+        alt='Recuperação'
+        fill
+        className="object-cover"
+      />
+    </div>
+    <div className="p-6">
+      <div className='flex gap-2'>
+      <Apple className="w-6 h-6 text-[#05a6b5]"/>
+      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Lorem ipsum</h3>
+      </div>
+      <p className="text-[#ffffff] mb-4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+      <div className="col-span-full flex justify-center mt-4">
+        <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
+          QUERO EVOLUIR
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {/* Card 3 */}
+<div className="rounded-lg p-[1px] bg-gradient-to-br from-black to-[#05a6b5]">
+  <div className="bg-[#111111] rounded-lg overflow-hidden shadow-xl transform transition-all">
+    <div className="h-48 w-full relative">
+      <Image 
+        src='/recuperacao.png'
+        alt='Recuperação'
+        fill
+        className="object-cover"
+      />
+    </div>
+    <div className="p-6">
+      <div className='flex gap-2'>
+        <HeartPulse className="w-6 h-6 text-[#05a6b5]"/>
+      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Lorem ipsum</h3>
+      </div>
+      <p className="text-[#ffffff] mb-4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+      <div className="col-span-full flex justify-center mt-4">
+        <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
+          QUERO EVOLUIR
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
       {/* Transformações Section - Antes e Depois */}
           <section id="transformacoes" className="py-20 bg-[#000000] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
@@ -202,7 +291,7 @@ export default function Home() {
           {/* Slide 1 */}
           <SwiperSlide>
             <div className="bg-[#111111] p-6 rounded-2xl shadow-xl">
-              <h3 className="text-2xl text-white font-bold mb-2 text-center">Luiz - 3 Meses de Evolução</h3>
+              <h3 className="text-2xl text-white font-space font-bold mb-2 text-center">3 Meses de Evolução</h3>
               <p className="text-[#cccccc] text-center mb-6">
                 Resultado impressionante com acompanhamento alimentar e treinos personalizados.
               </p>
@@ -344,48 +433,83 @@ export default function Home() {
           <h2 className="font-space text-4xl md:text-5xl font-bold text-[#fafafa] text-center mb-12">
             Planos Desenvolvidos Pensando Na Sua <span className="text-[#05a6b5]">Evolução</span>
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-1 gap-8">
+
             {/* Card 1 */}
-            <div className="bg-[#fafafa] rounded-lg overflow-hidden shadow-xl transform hover:scale-105 transition-all">
-              <div className="h-48 bg-gray-300"></div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#171717] mb-3">Lorem ipsum</h3>
-                <p className="text-gray-700 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-                <button className="text-[#05a6b5] font-semibold hover:underline">
-                  Saiba mais →
-                </button>
-              </div>
-            </div>
+ {/* Cabeçalho com título e vídeo/imagem */}
+ <div className="w-full bg-[#0f0f0f] text-white rounded-2xl shadow-2xl border border-[#333] p-8 md:p-16 space-y-12">
+  <div className="flex flex-col md:flex-row items-center gap-8">
+    <div className="flex-1 space-y-4">
+      <h2 className="flex items-center gap-3 text-3xl md:text-5xl font-bold font-space text-white">
+        <Dumbbell className="w-8 h-8 text-[#05a6b5]"/>Consultoria Personalizada
+      </h2>
+      <p className="font-space text-gray-300 text-base md:text-lg">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat et mauris a porta. Aliquam facilisis id erat eu sollicitudin. Praesent convallis sit amet nulla ut vestibulum.
+      </p>
+    </div>
+    <div className="w-full md:w-[380px] rounded-xl overflow-hidden shadow-lg">
+      <iframe
+        className="w-full aspect-video rounded-xl"
+        src="https://www.youtube.com/embed/GMNzPDZO7C4?si=gNdq4R5b-jy49Ed4"
+        title="Vídeo"
+        allowFullScreen
+      />
+    </div>
+  </div>
 
-            {/* Card 2 */}
-            <div className="bg-[#fafafa] rounded-lg overflow-hidden shadow-xl transform hover:scale-105 transition-all">
-              <div className="h-48 bg-gray-300"></div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#171717] mb-3">Lorem ipsum</h3>
-                <p className="text-gray-700 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-                <button className="text-[#05a6b5] font-semibold hover:underline">
-                  Saiba mais →
-                </button>
-              </div>
-            </div>
+  {/* Benefícios */}
+  <div className="bg-[#191919] rounded-xl p-6 space-y-4">
+    <h3 className="font-space text-2xl font-bold text-[#05a6b5]">Vou acompanhar de perto:</h3>
+    <div className="font-space-bold grid md:grid-cols-2 gap-4">
+      {[
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+        "Lorem ipsum dolor sit amet",
+      ].map((benefit, i) => (
+        <div
+          key={i}
+          className="bg-[#0f0f0f] border border-[#333] rounded-lg p-4 text-sm text-white shadow-inner flex items-center gap-3"
+        >
+          <CircleCheck className="w-8 h-8 text-[#05a6b5]"/> {benefit}
+        </div>
+      ))}
+    </div>
+      <div className='col-span-full flex justify-center mt-4'>
+      <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
+          QUERO EVOLUIR
+      </button>
+      </div>
+  </div>
 
-            {/* Card 3 */}
-            <div className="bg-[#fafafa] rounded-lg overflow-hidden shadow-xl transform hover:scale-105 transition-all">
-              <div className="h-48 bg-gray-300"></div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#171717] mb-3">Lorem ipsum</h3>
-                <p className="text-gray-700 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-                <button className="text-[#05a6b5] font-semibold hover:underline">
-                  Saiba mais →
-                </button>
-              </div>
-            </div>
+  {/* Planos */}
+  <div className="font-space grid md:grid-cols-3 gap-6">
+    {[
+      { label: "MENSAL", value: "3x R$ 00,00", type: "MENSAL" },
+      { label: "TRIMESTRAL", value: "6x R$ 00,00", type: "TRIMESTRAL" },
+      { label: "SEMESTRAL", value: "12x R$ 00,00", type: "SEMESTRAL" },
+    ].map((plan, i) => (
+      <div
+        key={i}
+        className="bg-[#141414] border border-[#333] rounded-xl p-6 flex flex-col items-center text-center shadow-xl"
+      >
+        <p className="text-sm uppercase font-semibold text-[#05a6b5] mb-2">
+          {plan.label}
+        </p>
+        <h3 className="font-space text-3xl font-bold mb-2">{plan.value}</h3>
+        <p className="font-space text-gray-400 text-sm mb-4">Assinatura {plan.type}</p>
+        <button className="font-space w-full bg-[#05a6b5] text-black font-bold py-3 rounded-xl hover:brightness-90 transition">
+          QUERO EVOLUIR
+        </button>
+        <p className="text-xs text-gray-400 mt-3">
+          Acesso imediato • Suporte pessoal Matheus Radünz
+        </p>
+      </div>
+    ))}
+  </div>
+  </div>
+  
+
           </div>
         </div>
       </section>
@@ -418,53 +542,53 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Plano Básico */}
             <div className="bg-[#fafafa] rounded-lg p-8 text-center transform hover:scale-105 transition-all">
-              <h3 className="text-2xl font-bold text-[#171717] mb-4">Básico</h3>
-              <p className="text-4xl font-bold text-[#05a6b5] mb-6">
-                R$ 199<span className="text-lg">/mês</span>
+              <h3 className="font-space text-2xl font-bold text-[#171717] mb-4">Mensal</h3>
+              <p className="font-space text-4xl font-bold text-[#05a6b5] mb-6">
+                R$ 00,00<span className="text-lg">/mês</span>
               </p>
               <ul className="space-y-3 mb-8">
-                <li className="text-gray-700">3x por semana</li>
-                <li className="text-gray-700">Plano de treino</li>
-                <li className="text-gray-700">Suporte via WhatsApp</li>
+                <li className="font-space text-gray-700">3x por semana</li>
+                <li className="font-space text-gray-700">Plano de treino</li>
+                <li className="font-space text-gray-700">Suporte via WhatsApp</li>
               </ul>
-              <button className="w-full bg-[#171717] text-[#fafafa] py-3 rounded-lg hover:bg-[#171717]/90 transition-all">
+              <button className="font-space w-full bg-[#171717] text-[#fafafa] py-3 rounded-lg hover:bg-[#171717]/90 transition-all">
                 Começar Agora
               </button>
             </div>
 
             {/* Plano Premium */}
             <div className="bg-[#05a6b5] rounded-lg p-8 text-center transform scale-105 shadow-2xl">
-              <div className="bg-[#fafafa] text-[#171717] text-sm font-bold py-1 px-4 rounded-full inline-block mb-4">
+              <div className="font-space bg-[#fafafa] text-[#171717] text-sm font-bold py-1 px-4 rounded-full inline-block mb-4">
                 MAIS POPULAR
               </div>
-              <h3 className="text-2xl font-bold text-[#fafafa] mb-4">Premium</h3>
-              <p className="text-4xl font-bold text-[#fafafa] mb-6">
-                R$ 299<span className="text-lg">/mês</span>
+              <h3 className="font-space text-2xl font-bold text-[#fafafa] mb-4">Trimestral</h3>
+              <p className="font-space text-4xl font-bold text-[#fafafa] mb-6">
+                R$ 00,00<span className="text-lg">/mês</span>
               </p>
-              <ul className="space-y-3 mb-8 text-[#fafafa]">
+              <ul className="font-space space-y-3 mb-8 text-[#fafafa]">
                 <li>5x por semana</li>
                 <li>Plano de treino + nutrição</li>
                 <li>Acompanhamento semanal</li>
                 <li>Avaliação mensal</li>
               </ul>
-              <button className="w-full bg-[#fafafa] text-[#171717] py-3 rounded-lg hover:bg-[#fafafa]/90 transition-all font-bold">
+              <button className="font-space w-full bg-[#fafafa] text-[#171717] py-3 rounded-lg hover:bg-[#fafafa]/90 transition-all font-bold">
                 Começar Agora
               </button>
             </div>
 
             {/* Plano VIP */}
             <div className="bg-[#fafafa] rounded-lg p-8 text-center transform hover:scale-105 transition-all">
-              <h3 className="text-2xl font-bold text-[#171717] mb-4">VIP</h3>
-              <p className="text-4xl font-bold text-[#05a6b5] mb-6">
-                R$ 499<span className="text-lg">/mês</span>
+              <h3 className="font-space text-2xl font-bold text-[#171717] mb-4">Semestral</h3>
+              <p className="font-space text-4xl font-bold text-[#05a6b5] mb-6">
+                R$ 00,00<span className="text-lg">/mês</span>
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="font-space space-y-3 mb-8">
                 <li className="text-gray-700">Treino ilimitado</li>
                 <li className="text-gray-700">Personal exclusivo</li>
                 <li className="text-gray-700">Nutricionista incluso</li>
                 <li className="text-gray-700">Prioridade total</li>
               </ul>
-              <button className="w-full bg-[#171717] text-[#fafafa] py-3 rounded-lg hover:bg-[#171717]/90 transition-all">
+              <button className="font-space w-full bg-[#171717] text-[#fafafa] py-3 rounded-lg hover:bg-[#171717]/90 transition-all">
                 Começar Agora
               </button>
             </div>
@@ -525,66 +649,74 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-[#000000] overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="font-space text-4xl md:text-5xl font-bold text-[#05a6b5] text-center mb-12">
-            Perguntas Frequentes
-          </h2>
-          <div className="space-y-6">
-            <div className="bg-[#fafafa]/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="font-space text-xl font-bold text-[#fafafa] mb-3">
-                Preciso ter experiência prévia com musculação?
-              </h3>
-              <p className="font-space text-[#fafafa]/80">
-                Não! Trabalho com alunos de todos os níveis, desde iniciantes até atletas avançados. 
-                O treino será adaptado ao seu nível atual.
-              </p>
-            </div>
-            <div className="bg-[#fafafa]/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="font-space text-xl font-bold text-[#fafafa] mb-3">
-                Em quanto tempo verei resultados?
-              </h3>
-              <p className="font-space text-[#fafafa]/80">
-                Com dedicação e seguindo o plano, você começará a ver mudanças em 4-6 semanas. 
-                Resultados significativos geralmente aparecem entre 2-3 meses.
-              </p>
-            </div>
-            <div className="bg-[#fafafa]/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="font-space text-xl font-bold text-[#fafafa] mb-3">
-                Posso cancelar a qualquer momento?
-              </h3>
-              <p className="font-space text-[#fafafa]/80">
-                Sim! Não trabalhamos com fidelidade. Você pode cancelar ou pausar seu plano 
-                quando precisar, sem multas.
-              </p>
-            </div>
-            <div className="bg-[#fafafa]/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="font-space text-xl font-bold text-[#fafafa] mb-3">
-                O acompanhamento nutricional está incluído?
-              </h3>
-              <p className="font-space text-[#fafafa]/80">
-                Nos planos Premium e VIP sim! No plano básico, oferecemos orientações gerais 
-                sobre alimentação saudável.
-              </p>
-            </div>
-          </div>
+<section className="py-20 bg-[#000000] overflow-hidden">
+  <div className="max-w-4xl mx-auto px-4">
+    <h2 className="font-space text-4xl md:text-5xl font-bold text-[#05a6b5] text-center mb-12">
+      Perguntas Frequentes
+    </h2>
+    <div className="space-y-6">
+      <div className="p-[1px] rounded-lg bg-gradient-to-br from-black to-[#05a6b5]">
+        <div className="bg-[#000000] rounded-lg p-6">
+          <h3 className="font-space text-xl font-bold text-[#fafafa] mb-3">
+            Preciso ter experiência prévia com musculação?
+          </h3>
+          <p className="font-space text-[#fafafa]/80">
+            Não! Trabalho com alunos de todos os níveis, desde iniciantes até atletas avançados. 
+            O treino será adaptado ao seu nível atual.
+          </p>
         </div>
-      </section>
+      </div>
+
+      <div className="p-[1px] rounded-lg bg-gradient-to-br from-black to-[#05a6b5]">
+        <div className="bg-[#000000] rounded-lg p-6">
+          <h3 className="font-space text-xl font-bold text-[#fafafa] mb-3">
+            Em quanto tempo verei resultados?
+          </h3>
+          <p className="font-space text-[#fafafa]/80">
+            Com dedicação e seguindo o plano, você começará a ver mudanças em 4-6 semanas. 
+            Resultados significativos geralmente aparecem entre 2-3 meses.
+          </p>
+        </div>
+      </div>
+
+      <div className="p-[1px] rounded-lg bg-gradient-to-br from-black to-[#05a6b5]">
+        <div className="bg-[#000000] rounded-lg p-6">
+          <h3 className="font-space text-xl font-bold text-[#fafafa] mb-3">
+            Posso cancelar a qualquer momento?
+          </h3>
+          <p className="font-space text-[#fafafa]/80">
+            Sim! Não trabalhamos com fidelidade. Você pode cancelar ou pausar seu plano 
+            quando precisar, sem multas.
+          </p>
+        </div>
+      </div>
+
+      <div className="p-[1px] rounded-lg bg-gradient-to-br from-black to-[#05a6b5]">
+        <div className="bg-[#000000] rounded-lg p-6">
+          <h3 className="font-space text-xl font-bold text-[#fafafa] mb-3">
+            O acompanhamento nutricional está incluído?
+          </h3>
+          <p className="font-space text-[#fafafa]/80">
+            Nos planos Premium e VIP sim! No plano básico, oferecemos orientações gerais 
+            sobre alimentação saudável.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* CTA Final */}
       <section className="py-20 bg-gradient-to-r from-[#171717] to-[#05a6b5] overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="font-space text-4xl md:text-5xl font-bold text-[#fafafa] mb-6">
-            Pronto Para Começar Sua Transformação?
+            Ainda está com dúvidas?
           </h2>
           <p className="font-space text-xl text-[#fafafa]/90 mb-8">
-            Não espere mais para alcançar o corpo dos seus sonhos
+            Me envie uma mensagem! Será um prazer conversar com você e entender os seus objetivos.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="font-space bg-[#fafafa] text-[#171717] font-bold py-4 px-8 rounded-full text-lg hover:bg-[#fafafa]/90 transition-all">
-              Agendar Avaliação Gratuita
-            </button>
-            <button className="font-space border-2 border-[#fafafa] text-[#fafafa] font-bold py-4 px-8 rounded-full text-lg hover:bg-[#fafafa] hover:text-[#171717] transition-all">
+            <button className="font-space border-2 border-[#fafafa] text-[#fafafa] font-bold py-4 px-8 rounded-xl text-lg hover:bg-[#fafafa] hover:text-[#171717] transition-all">
               Falar no WhatsApp
             </button>
           </div>
@@ -592,7 +724,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#171717] py-12 overflow-hidden">
+      <footer className="bg-[#000000] py-12 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
