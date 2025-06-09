@@ -1,14 +1,18 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Pirata_One } from 'next/font/google';
+import { Space_Grotesk } from 'next/font/google';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const pirataOne = Pirata_One({
+  subsets: ['latin'],
+  weight: '400', // Pirata One só tem peso 400
+  variable: '--font-pirata-one',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['300', '600'], // ✅ inclui o peso "bold"
+  variable: '--font-space-grotesk',
 });
 
 export const metadata = {
@@ -20,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${pirataOne.variable} ${spaceGrotesk.variable} antialiased`}
       >
         {children}
       </body>
