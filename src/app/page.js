@@ -1,16 +1,20 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { Apple, BicepsFlexed, CircleCheck, Dumbbell, HeartPulse } from 'lucide-react'
-import "swiper/css"
-import "swiper/css/navigation"
+import { Apple, BicepsFlexed, ChevronLeft, ChevronRight, CircleCheck, Dumbbell, HeartPulse, Medal } from 'lucide-react'
+import 'swiper/css'
+import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
 
 export default function Home() {
   const [sliderPosition, setSliderPosition] = useState(50)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+
+  const prevRef = useRef(null)
+  const nextRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,12 +66,9 @@ export default function Home() {
           {isMenuOpen && (
             <div className="md:hidden bg-[#171717]/95 backdrop-blur-md rounded-lg mt-2 p-4">
               <nav className="flex flex-col space-y-4">
-                <a href="#home" className="text-[#fafafa] hover:text-[#05a6b5] transition-colors">Início</a>
-                <a href="#sobre" className="text-[#fafafa] hover:text-[#05a6b5] transition-colors">Sobre</a>
-                <a href="#servicos" className="text-[#fafafa] hover:text-[#05a6b5] transition-colors">Serviços</a>
+                <a href="#experiencia" className="text-[#fafafa] hover:text-[#05a6b5] transition-colors">Serviços</a>
                 <a href="#transformacoes" className="text-[#fafafa] hover:text-[#05a6b5] transition-colors">Transformações</a>
                 <a href="#planos" className="text-[#fafafa] hover:text-[#05a6b5] transition-colors">Planos</a>
-                <a href="#contato" className="text-[#fafafa] hover:text-[#05a6b5] transition-colors">Contato</a>
               </nav>
             </div>
           )}
@@ -91,27 +92,42 @@ export default function Home() {
     </h1>
 
     <p className="text-base md:text-lg font-space text-[#fafafa]/90 mb-6">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-      <span className="font-space-bold text-[#05a6b5]"> feugiat et mauris</span> a porta.
-      Aliquam facilisis id erat eu sollicitudin.
+      Descubra a <span className="font-space-bold text-[#05a6b5]">melhor versão de si mesmo</span> com treinos personalizados, orientação profissional e resultados reais.<br></br>
+      Chegou a hora de <span className="font-space-bold text-[#05a6b5]">transformar seu corpo e sua mente.</span>
     </p>
 
     {/* Ícones com textos */}
     <div className="space-y-4 mb-10">
       <div className="flex items-start space-x-3">
         <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
-        <div className="font-space text-white">
-          <p className="font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div className="text-white">
+          <p className="font-space font-bold">Acompanhamento individualizado para resultados mais rápidos e eficazes</p>
         </div>
       </div>
 
       <div className="flex items-start space-x-3">
         <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
         <div className="text-white">
-          <p className="font-space font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p className="font-space font-bold">Treinos, nutrição e suporte adaptados à sua rotina e objetivos.</p>
         </div>
       </div>
+      <div className="flex items-start space-x-3">
+        <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
+        <div className="text-white">
+          <p className="font-space font-bold">Metodologia testada para queimar gordura, ganhar massa e manter o foco.</p>
+        </div>
+      </div>
+      <div className="flex items-start space-x-3">
+        <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
+        <div className="text-white">
+          <p className="font-space font-bold">Metodologia testada para queimar gordura, ganhar massa e manter o foco.</p>
+        </div>
+      </div>
+
+    <p className="text-base md:text-lg font-space text-[#fafafa]/90 mb-6">
+      Sem <span className="font-bold">achismos:</span> <span className="font-space-bold text-[#05a6b5]">ciência, experiência e motivação</span> juntos com você em cada etapa.
+    </p>
+
     </div>
 
     {/* Botão com ícone */}
@@ -136,9 +152,10 @@ export default function Home() {
         <div className="relative z-20 px-4 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-space text-4xl md:text-5xl font-bold text-[#ffffff] mb-6">
+              <h2 className="font-space text-4xl md:text-5xl font-bold text-[#ffffff] mb-3">
                 Matheus Radünz
               </h2>
+              <p className="text-[#05a6b5] font-space-bold mb-6">Professor - CREF 032983 -G/SC</p>
               <p className="font-space text-lg text-[#ffffff] mb-6">
                 Com mais de 10 anos de experiência, sou especializado em transformação corporal, 
                 musculação e condicionamento físico. Meu objetivo é ajudar você a alcançar o 
@@ -147,25 +164,41 @@ export default function Home() {
               <ul className="font-space space-y-3">
                 <li className="flex items-center">
                   <div className="flex items-start space-x-3">
-                    <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
+                    <Medal className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
                     <div className="text-white">
-                      <p className="font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      <p className="font-bold">Certificado em Cinesiologia e Biomecânica</p>
                     </div>
                   </div>
                 </li>
                 <li className="flex items-center">
                   <div className="flex items-start space-x-3">
-                    <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
+                    <Medal className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
                     <div className="text-white">
-                      <p className="font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      <p className="font-bold">Certificado em Métodos de Treinamento Avançado</p>
                     </div>
                   </div>
                 </li>
                 <li className="flex items-center">
                   <div className="flex items-start space-x-3">
-                    <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
+                    <Medal className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
                     <div className="text-white">
-                      <p className="font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      <p className="font-bold">Certificado em Musculação Avançada e Avaliação Postural</p>
+                    </div>
+                  </div>
+                </li>
+                <li className="flex items-center">
+                  <div className="flex items-start space-x-3">
+                    <Medal className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
+                    <div className="text-white">
+                      <p className="font-bold">Certificado em Anatomia Palpatória e Liberação Miofascial e Reabilitação de Lesões</p>
+                    </div>
+                  </div>
+                </li>
+                <li className="flex items-center">
+                  <div className="flex items-start space-x-3">
+                    <Medal className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
+                    <div className="text-white">
+                      <p className="font-bold">Mais de 8 anos de Atuação e Experiência na Musculação</p>
                     </div>
                   </div>
                 </li>
@@ -192,7 +225,7 @@ export default function Home() {
 >
   {/* Card 1 */}
 <div className="rounded-lg p-[1px] bg-gradient-to-br from-black to-[#05a6b5]">
-  <div className="bg-[#111111] rounded-lg overflow-hidden shadow-xl transform transition-all">
+  <div className="bg-[#111111] rounded-lg overflow-hidden shadow-xl transform transition-all h-full flex flex-col">
     <div className="h-48 w-full relative">
       <Image 
         src='/hipertrofia.png'
@@ -204,10 +237,11 @@ export default function Home() {
     <div className="p-6">
       <div className='flex gap-2'>
       <Dumbbell className="w-6 h-6 text-[#05a6b5]"/>
-      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Lorem ipsum</h3>
+      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Seca Total</h3>
       </div>
-      <p className="text-[#ffffff] mb-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      <p className="font-space text-[#ffffff] mb-4">
+        Desenvolva força, massa muscular e definição com um <span className="font-bold">plano de hipertrofia eficiente e personalizado.</span><br></br>
+        Treinos focados, nutrição orientada e acompanhamento contínuo para você atingir o seu potencial máximo.
       </p>
       <div className="col-span-full flex justify-center mt-4">
         <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
@@ -220,7 +254,7 @@ export default function Home() {
 
   {/* Card 2 */}
 <div className="rounded-lg p-[1px] bg-gradient-to-br from-black to-[#05a6b5]">
-  <div className="bg-[#111111] rounded-lg overflow-hidden shadow-xl transform transition-all">
+  <div className="bg-[#111111] rounded-lg overflow-hidden shadow-xl transform transition-all h-full flex flex-col">
     <div className="h-48 w-full relative">
       <Image 
         src='/emagrecimento.png'
@@ -232,10 +266,11 @@ export default function Home() {
     <div className="p-6">
       <div className='flex gap-2'>
       <Apple className="w-6 h-6 text-[#05a6b5]"/>
-      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Lorem ipsum</h3>
+      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Seca Total</h3>
       </div>
-      <p className="text-[#ffffff] mb-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      <p className="font-space text-[#ffffff] mb-4">
+        Emagreça com <span className="font-bold">saúde, segurança e resultados visíveis</span> em poucas semanas.<br></br>
+        Estratégias comprovadas de treino e alimentação para queimar gordura, manter massa magra e transformar seu corpo.
       </p>
       <div className="col-span-full flex justify-center mt-4">
         <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
@@ -248,7 +283,7 @@ export default function Home() {
 
   {/* Card 3 */}
 <div className="rounded-lg p-[1px] bg-gradient-to-br from-black to-[#05a6b5]">
-  <div className="bg-[#111111] rounded-lg overflow-hidden shadow-xl transform transition-all">
+  <div className="bg-[#111111] rounded-lg overflow-hidden shadow-xl transform transition-all h-full flex flex-col">
     <div className="h-48 w-full relative">
       <Image 
         src='/recuperacao.png'
@@ -259,11 +294,12 @@ export default function Home() {
     </div>
     <div className="p-6">
       <div className='flex gap-2'>
-        <HeartPulse className="w-6 h-6 text-[#05a6b5]"/>
-      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Lorem ipsum</h3>
+      <HeartPulse className="w-6 h-6 text-[#05a6b5]"/>
+      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Seca Total</h3>
       </div>
-      <p className="text-[#ffffff] mb-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      <p className="font-space text-[#ffffff] mb-4">
+        Programa de reabilitação e funcional para idosos ou pessoas com lesões.<br></br>
+        Foco em <span className="font-bold">mobilidade, equilíbrio, fortalecimento e qualidade de vida</span> com segurança e suporte total.
       </p>
       <div className="col-span-full flex justify-center mt-4">
         <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
@@ -275,157 +311,137 @@ export default function Home() {
 </div>
 </section>
 
-      {/* Transformações Section - Antes e Depois */}
-          <section id="transformacoes" className="py-20 bg-[#000000] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-space font-bold text-[#ffffff] text-center mb-12">
-          Transformações <span className="text-[#05a6b5]">Reais</span>
-        </h2>
+<section id="transformacoes" className="py-20 bg-[#000000] overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4">
+    <h2 className="text-4xl md:text-5xl font-space font-bold text-[#ffffff] text-center mb-12">
+      Transformações <span className="text-[#05a6b5]">Reais</span>
+    </h2>
 
-        {/* Swiper Carrossel */}
-        <Swiper
-          spaceBetween={20}
-          slidesPerView={1}
-          className="max-w-4xl mx-auto"
+    <div className="relative max-w-4xl mx-auto">
+      {/* Botões de navegação para desktop (fora do card) */}
+      <div className="hidden md:flex justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 z-10 px-4">
+        <button
+          ref={prevRef}
+          className="bg-[#05a6b5] text-white rounded-full w-12 aspect-square flex items-center justify-center shadow-lg"
         >
-          {/* Slide 1 */}
-          <SwiperSlide>
-            <div className="bg-[#111111] p-6 rounded-2xl shadow-xl">
-              <h3 className="text-2xl text-white font-space font-bold mb-2 text-center">3 Meses de Evolução</h3>
-              <p className="text-[#cccccc] text-center mb-6">
-                Resultado impressionante com acompanhamento alimentar e treinos personalizados.
-              </p>
-
-              {/* Card Antes e Depois */}
-              <div className="relative h-[400px] md:h-[600px] bg-gray-200 rounded-lg overflow-hidden">
-                {/* Imagem Antes */}
-                <div className="absolute inset-0">
-                  <img
-                    src="/antes-1-luiz.jpeg"
-                    alt="Antes"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-space text-white text-2xl font-bold drop-shadow-lg">ANTES</span>
-                  </div>
-                </div>
-
-                {/* Imagem Depois */}
-                <div
-                  className="absolute inset-0 overflow-hidden"
-                  style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
-                >
-                  <img
-                    src="/depois-1-luiz.jpeg"
-                    alt="Depois"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-space text-white text-2xl font-bold drop-shadow-lg">DEPOIS</span>
-                  </div>
-                </div>
-
-                {/* Linha divisória */}
-                <div
-                  className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize"
-                  style={{ left: `${sliderPosition}%` }}
-                >
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-2">
-                    <svg className="w-6 h-6 text-[#171717]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Slider invisível */}
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={sliderPosition}
-                  onChange={handleSliderChange}
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize"
-                />
-              </div>
-
-              <p className="font-space text-center text-[#ffffff] mt-4">
-                Arraste para ver a transformação
-              </p>
-            </div>
-          </SwiperSlide>
-          
-
-          {/* Adicione outros <SwiperSlide> com cards semelhantes aqui */}
-
-                    {/* Slide 1 */}
-          <SwiperSlide>
-            <div className="bg-[#111111] p-6 rounded-2xl shadow-xl">
-              <h3 className="text-2xl text-white font-bold mb-2 text-center">Luiz - 3 Meses de Evolução</h3>
-              <p className="text-[#cccccc] text-center mb-6">
-                Resultado impressionante com acompanhamento alimentar e treinos personalizados.
-              </p>
-
-              {/* Card Antes e Depois */}
-              <div className="relative h-[400px] md:h-[600px] bg-gray-200 rounded-lg overflow-hidden">
-                {/* Imagem Antes */}
-                <div className="absolute inset-0">
-                  <img
-                    src="/antes-1-luiz.jpeg"
-                    alt="Antes"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-space text-white text-2xl font-bold drop-shadow-lg">ANTES</span>
-                  </div>
-                </div>
-
-                {/* Imagem Depois */}
-                <div
-                  className="absolute inset-0 overflow-hidden"
-                  style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
-                >
-                  <img
-                    src="/depois-1-luiz.jpeg"
-                    alt="Depois"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-space text-white text-2xl font-bold drop-shadow-lg">DEPOIS</span>
-                  </div>
-                </div>
-
-                {/* Linha divisória */}
-                <div
-                  className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize"
-                  style={{ left: `${sliderPosition}%` }}
-                >
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-2">
-                    <svg className="w-6 h-6 text-[#171717]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Slider invisível */}
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={sliderPosition}
-                  onChange={handleSliderChange}
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize"
-                />
-              </div>
-
-              <p className="font-space text-center text-[#ffffff] mt-4">
-                Arraste para ver a transformação
-              </p>
-            </div>
-          </SwiperSlide>
-
-        </Swiper>
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        <button
+          ref={nextRef}
+          className="bg-[#05a6b5] text-white rounded-full w-12 aspect-square flex items-center justify-center shadow-lg"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
       </div>
-    </section>
+
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={1}
+        allowTouchMove={false}
+        navigation={{
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
+        }}
+        modules={[Navigation]}
+        onBeforeInit={(swiper) => {
+          //@ts-ignore
+          swiper.params.navigation.prevEl = prevRef.current
+          //@ts-ignore
+          swiper.params.navigation.nextEl = nextRef.current
+        }}
+        className="mx-auto"
+      >
+        {[1, 2].map((_, index) => (
+          <SwiperSlide key={index}>
+            <div className="bg-[#111111] p-6 rounded-2xl shadow-xl">
+              <h3 className="text-2xl text-white font-space font-bold mb-2 text-center">
+                3 Meses de Evolução
+              </h3>
+              <p className="text-[#cccccc] text-center mb-6">
+                Resultado impressionante com acompanhamento alimentar e treinos personalizados.
+              </p>
+
+              <div className="relative h-[400px] md:h-[600px] bg-gray-200 rounded-lg overflow-hidden">
+                {/* Imagem Antes */}
+                <div className="absolute inset-0">
+                  <img
+                    src="/antes-1-luiz.jpeg"
+                    alt="Antes"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="font-space text-white text-2xl font-bold drop-shadow-lg">ANTES</span>
+                  </div>
+                </div>
+
+                {/* Imagem Depois */}
+                <div
+                  className="absolute inset-0 overflow-hidden"
+                  style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+                >
+                  <img
+                    src="/depois-1-luiz.jpeg"
+                    alt="Depois"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="font-space text-white text-2xl font-bold drop-shadow-lg">DEPOIS</span>
+                  </div>
+                </div>
+
+                {/* Linha divisória */}
+                <div
+                  className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize"
+                  style={{ left: `${sliderPosition}%` }}
+                >
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-2">
+                    <svg className="w-6 h-6 text-[#171717]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={sliderPosition}
+                  onChange={handleSliderChange}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize"
+                />
+              </div>
+
+              <p className="font-space text-center text-[#ffffff] mt-4">
+                Arraste para ver a transformação
+              </p>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Botões no mobile (funcionais e fora do swiper) */}
+      <div className="flex md:hidden justify-center gap-4 mt-6">
+        <button
+          ref={prevRef}
+          className="bg-[#05a6b5] text-white rounded-full w-10 aspect-square flex items-center justify-center shadow"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button
+          ref={nextRef}
+          className="bg-[#05a6b5] text-white rounded-full w-10 aspect-square flex items-center justify-center shadow"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Serviços Section */}
       <section id="servicos" className="py-20 bg-[#000000] overflow-hidden">
@@ -444,7 +460,10 @@ export default function Home() {
         <Dumbbell className="w-8 h-8 text-[#05a6b5]"/>Consultoria Personalizada
       </h2>
       <p className="font-space text-gray-300 text-base md:text-lg">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat et mauris a porta. Aliquam facilisis id erat eu sollicitudin. Praesent convallis sit amet nulla ut vestibulum.
+        Com mais de 10 anos de experiência, desenvolvi um método exclusivo de acompanhamento que une estratégia, ciência e motivação. Você terá acesso a um plano 100% individualizado, adaptado aos seus objetivos, rotina e limitações.
+      </p>
+      <p className="font-space-bold text-gray-300 text-base md:text-lg">
+        Treinamento com propósito. Nutrição com estratégia. Evolução com resultado.
       </p>
     </div>
     <div className="w-full md:w-[380px] rounded-xl overflow-hidden shadow-lg">
@@ -462,10 +481,10 @@ export default function Home() {
     <h3 className="font-space text-2xl font-bold text-[#05a6b5]">Vou acompanhar de perto:</h3>
     <div className="font-space-bold grid md:grid-cols-2 gap-4">
       {[
-        "Lorem ipsum dolor sit amet",
-        "Lorem ipsum dolor sit amet",
-        "Lorem ipsum dolor sit amet",
-        "Lorem ipsum dolor sit amet",
+        "Avaliação física e objetivos detalhados",
+        "Treinos personalizados para cada fase",
+        "Estratégias alimentares adaptadas à sua realidade",
+        "Ajustes semanais e suporte contínuo via WhatsApp",
       ].map((benefit, i) => (
         <div
           key={i}
@@ -721,23 +740,22 @@ export default function Home() {
                 height={50}
               />
               <p className="font-space text-gray-400">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Transformando vidas com ciência, empatia e resultados reais.
               </p>
             </div>
             <div>
               <h4 className="text-[#fafafa] font-bold mb-4">Links Rápidos</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="font-space text-gray-400 hover:text-[#05a6b5]">Sobre</a></li>
+                <li><a href="#" className="font-space text-gray-400 hover:text-[#05a6b5]">Matheus Radünz</a></li>
                 <li><a href="#" className="font-space text-gray-400 hover:text-[#05a6b5]">Serviços</a></li>
                 <li><a href="#" className="font-space text-gray-400 hover:text-[#05a6b5]">Planos</a></li>
-                <li><a href="#" className="font-space text-gray-400 hover:text-[#05a6b5]">Contato</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-space text-[#fafafa] font-bold mb-4">Contato</h4>
               <ul className="font-space space-y-2 text-gray-400">
                 <li>📧 contato@matheusradunz.com</li>
-                <li>📱 (11) 99999-9999</li>
+                <li>📱 (47) 99158-7307</li>
                 <li>📍 Penha, SC</li>
               </ul>
             </div>
@@ -767,13 +785,13 @@ export default function Home() {
     </main>
     {/* Botão flutuante WhatsApp */}
 <a
-  href="https://wa.me/5511999999999?text=Olá%20Matheus,%20gostaria%20de%20iniciar%20a%20consultoria!"
+  href="https://wa.me/554791587307?text=Olá%20Matheus,%20gostaria%20de%20iniciar%20a%20minha%20evolução!"
   target="_blank"
   rel="noopener noreferrer"
   className="fixed bottom-6 right-6 z-50 text-white rounded-full p-4 shadow-lg hover:scale-105 transition-all"
   aria-label="Fale no WhatsApp"
 >
-<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 256 258"><defs><linearGradient id="logosWhatsappIcon0" x1="50%" x2="50%" y1="100%" y2="0%"><stop offset="0%" stop-color="#1FAF38"/><stop offset="100%" stop-color="#60D669"/></linearGradient><linearGradient id="logosWhatsappIcon1" x1="50%" x2="50%" y1="100%" y2="0%"><stop offset="0%" stop-color="#F9F9F9"/><stop offset="100%" stop-color="#FFF"/></linearGradient></defs><path fill="url(#logosWhatsappIcon0)" d="M5.463 127.456c-.006 21.677 5.658 42.843 16.428 61.499L4.433 252.697l65.232-17.104a122.994 122.994 0 0 0 58.8 14.97h.054c67.815 0 123.018-55.183 123.047-123.01c.013-32.867-12.775-63.773-36.009-87.025c-23.23-23.25-54.125-36.061-87.043-36.076c-67.823 0-123.022 55.18-123.05 123.004"/><path fill="url(#logosWhatsappIcon1)" d="M1.07 127.416c-.007 22.457 5.86 44.38 17.014 63.704L0 257.147l67.571-17.717c18.618 10.151 39.58 15.503 60.91 15.511h.055c70.248 0 127.434-57.168 127.464-127.423c.012-34.048-13.236-66.065-37.3-90.15C194.633 13.286 162.633.014 128.536 0C58.276 0 1.099 57.16 1.071 127.416Zm40.24 60.376l-2.523-4.005c-10.606-16.864-16.204-36.352-16.196-56.363C22.614 69.029 70.138 21.52 128.576 21.52c28.3.012 54.896 11.044 74.9 31.06c20.003 20.018 31.01 46.628 31.003 74.93c-.026 58.395-47.551 105.91-105.943 105.91h-.042c-19.013-.01-37.66-5.116-53.922-14.765l-3.87-2.295l-40.098 10.513l10.706-39.082Z"/><path fill="#FFF" d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561c0 15.67 11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716c-3.186-1.593-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 256 258"><defs><linearGradient id="logosWhatsappIcon0" x1="50%" x2="50%" y1="100%" y2="0%"><stop offset="0%" stopColor="#1FAF38"/><stop offset="100%" stopColor="#60D669"/></linearGradient><linearGradient id="logosWhatsappIcon1" x1="50%" x2="50%" y1="100%" y2="0%"><stop offset="0%" stopColor="#F9F9F9"/><stop offset="100%" stopColor="#FFF"/></linearGradient></defs><path fill="url(#logosWhatsappIcon0)" d="M5.463 127.456c-.006 21.677 5.658 42.843 16.428 61.499L4.433 252.697l65.232-17.104a122.994 122.994 0 0 0 58.8 14.97h.054c67.815 0 123.018-55.183 123.047-123.01c.013-32.867-12.775-63.773-36.009-87.025c-23.23-23.25-54.125-36.061-87.043-36.076c-67.823 0-123.022 55.18-123.05 123.004"/><path fill="url(#logosWhatsappIcon1)" d="M1.07 127.416c-.007 22.457 5.86 44.38 17.014 63.704L0 257.147l67.571-17.717c18.618 10.151 39.58 15.503 60.91 15.511h.055c70.248 0 127.434-57.168 127.464-127.423c.012-34.048-13.236-66.065-37.3-90.15C194.633 13.286 162.633.014 128.536 0C58.276 0 1.099 57.16 1.071 127.416Zm40.24 60.376l-2.523-4.005c-10.606-16.864-16.204-36.352-16.196-56.363C22.614 69.029 70.138 21.52 128.576 21.52c28.3.012 54.896 11.044 74.9 31.06c20.003 20.018 31.01 46.628 31.003 74.93c-.026 58.395-47.551 105.91-105.943 105.91h-.042c-19.013-.01-37.66-5.116-53.922-14.765l-3.87-2.295l-40.098 10.513l10.706-39.082Z"/><path fill="#FFF" d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561c0 15.67 11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716c-3.186-1.593-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"/></svg>
 </a>
     </div>
   );

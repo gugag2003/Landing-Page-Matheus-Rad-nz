@@ -1,4 +1,3 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Pirata_One } from 'next/font/google';
 import { Space_Grotesk } from 'next/font/google';
