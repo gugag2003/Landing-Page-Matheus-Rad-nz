@@ -131,10 +131,12 @@ export default function Home() {
     </div>
 
     {/* Botão com ícone */}
+    <a href="#servicos">
     <button className="bg-[#05a6b5] hover:bg-[#05a6b5]/90 text-neutral-950 font-space-bold font-semibold py-4 px-6 rounded-xl text-base transition-all transform hover:scale-105 flex items-center gap-2">
       <BicepsFlexed className="w-5 h-5" />
       COMECE SUA EVOLUÇÃO
     </button>
+    </a>
   </div>
 
   {/* Ícone animado */}
@@ -244,9 +246,11 @@ export default function Home() {
         Treinos focados, nutrição orientada e acompanhamento contínuo para você atingir o seu potencial máximo.
       </p>
       <div className="col-span-full flex justify-center mt-4">
+        <a href="#servicos">
         <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
           QUERO EVOLUIR
         </button>
+        </a>
       </div>
     </div>
   </div>
@@ -273,9 +277,11 @@ export default function Home() {
         Estratégias comprovadas de treino e alimentação para queimar gordura, manter massa magra e transformar seu corpo.
       </p>
       <div className="col-span-full flex justify-center mt-4">
+        <a href="#servicos">
         <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
           QUERO EVOLUIR
         </button>
+        </a>
       </div>
     </div>
   </div>
@@ -302,9 +308,11 @@ export default function Home() {
         Foco em <span className="font-bold">mobilidade, equilíbrio, fortalecimento e qualidade de vida</span> com segurança e suporte total.
       </p>
       <div className="col-span-full flex justify-center mt-4">
+        <a href="#servicos">
         <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
           QUERO EVOLUIR
         </button>
+        </a>
       </div>
     </div>
   </div>
@@ -495,9 +503,7 @@ export default function Home() {
       ))}
     </div>
       <div className='col-span-full flex justify-center mt-4'>
-      <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
-          QUERO EVOLUIR
-      </button>
+
       </div>
   </div>
 
@@ -517,7 +523,12 @@ export default function Home() {
         </p>
         <h3 className="font-space text-3xl font-bold mb-2">{plan.value}</h3>
         <p className="font-space text-gray-400 text-sm mb-4">Assinatura {plan.type}</p>
-        <button className="font-space w-full bg-[#05a6b5] text-black font-bold py-3 rounded-xl hover:brightness-90 transition">
+        <button onClick={() => {
+    const target = document.getElementById('planos');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }} className="font-space w-full bg-[#05a6b5] text-black font-bold py-3 rounded-xl hover:brightness-90 transition">
           QUERO EVOLUIR
         </button>
         <p className="text-xs text-gray-400 mt-3">
@@ -543,7 +554,12 @@ export default function Home() {
             Não espere mais para alcançar o corpo dos seus sonhos
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="font-space bg-[#fafafa] text-[#171717] font-bold py-4 px-8 rounded-xl text-lg hover:bg-[#fafafa]/90 transition-all">
+            <button onClick={() => {
+    const target = document.getElementById('planos');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }} className="font-space bg-[#fafafa] text-[#171717] font-bold py-4 px-8 rounded-xl text-lg hover:bg-[#fafafa]/90 transition-all">
               ESCOLHER PLANO IDEAL
             </button>
           </div>
@@ -720,9 +736,11 @@ export default function Home() {
             Me envie uma mensagem! Será um prazer conversar com você e entender os seus objetivos.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/554791587307?text=Olá%20Matheus,%20gostaria%20de%20iniciar%20a%20minha%20evolução!">
             <button className="font-space border-2 border-[#fafafa] text-[#fafafa] font-bold py-4 px-8 rounded-xl text-lg hover:bg-[#fafafa] hover:text-[#171717] transition-all">
               Falar no WhatsApp
             </button>
+            </a>
           </div>
         </div>
       </section>
@@ -746,9 +764,9 @@ export default function Home() {
             <div>
               <h4 className="text-[#fafafa] font-bold mb-4">Links Rápidos</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="font-space text-gray-400 hover:text-[#05a6b5]">Matheus Radünz</a></li>
-                <li><a href="#" className="font-space text-gray-400 hover:text-[#05a6b5]">Serviços</a></li>
-                <li><a href="#" className="font-space text-gray-400 hover:text-[#05a6b5]">Planos</a></li>
+                <li><a href="#sobre" className="font-space text-gray-400 hover:text-[#05a6b5]">Matheus Radünz</a></li>
+                <li><a href="#servicos" className="font-space text-gray-400 hover:text-[#05a6b5]">Serviços</a></li>
+                <li><a href="#planos" className="font-space text-gray-400 hover:text-[#05a6b5]">Planos</a></li>
               </ul>
             </div>
             <div>
