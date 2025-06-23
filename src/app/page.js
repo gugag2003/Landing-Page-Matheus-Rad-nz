@@ -368,22 +368,6 @@ export default function Home() {
     </h2>
 
     <div className="relative max-w-4xl mx-auto">
-      {/* Botões de navegação para desktop (fora do card) */}
-      <div className="hidden md:flex justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 z-10 px-0">
-        <button
-          ref={prevRef}
-          className="bg-[#05a6b5] text-white rounded-xl w-12 aspect-square flex items-center justify-center shadow-lg"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-        <button
-          ref={nextRef}
-          className="bg-[#05a6b5] text-white rounded-xl w-12 aspect-square flex items-center justify-center shadow-lg"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-      </div>
-
       
 
 <Swiper
@@ -477,7 +461,7 @@ export default function Home() {
 </Swiper>
 
             {/* Botões no mobile (funcionais e fora do swiper) */}
-      <div className="flex md:hidden justify-center gap-4 mt-6">
+      <div className="flex justify-center gap-4 mt-6">
         <button
           ref={prevRef}
           className="bg-[#05a6b5] text-white rounded-xl w-10 aspect-square flex items-center justify-center shadow"
