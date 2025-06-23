@@ -681,7 +681,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="font-space font-bold text-[#ffffff]">Christiane</p>
-              <p className="font-space text-[#ffffff] mb-6">34 anos</p>             
+              <p className="font-space text-[#ffffff] mb-4">34 anos</p>             
               <p className="font-space text-white mb-4">
                 &quot;Matheus! Gostaria de te agradecer sinceramente pelo excelente trabalho que vem realizando. As dores na minha lombar diminuíram muito desde que comecei a treinar sob sua orientação, e isso impactou diretamente na minha qualidade de vida. Seu profissionalismo e atenção fazem toda a diferença. Parabéns e muito obrigado!✨🙏&quot;
               </p>
@@ -696,7 +696,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="font-space font-bold text-[#ffffff]">Cleide</p>
-              <p className="font-space text-[#ffffff] mb-6">45 anos</p>             
+              <p className="font-space text-[#ffffff] mb-4">45 anos</p>             
               <p className="font-space text-white mb-4">
                 &quot;Matheus, você é um excelente profissional, dedicado e comprometido. Muito atencioso durante os treinos, sempre incentivando e ensinando a forma correta de fazer os exercícios.
 Gosto da maneira como você personaliza os treinos, sempre pensando nas minhas necessidades e objetivos.&quot;
