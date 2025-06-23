@@ -76,23 +76,23 @@ export default function Home() {
       </header>
 
 {/* Hero Section */}
-<section id="home" className="relative h-screen flex items-center justify-center bg-gradient-to-br from-[#171717] to-[#05a6b5] overflow-hidden">
+<section id="home" className="relative h-250 min-h-screen flex flex-col md:flex-row items-center justify-between bg-gradient-to-br from-[#171717] to-[#05a6b5] overflow-hidden">
   {/* Imagem de fundo abaixo da overlay */}
   <div className="absolute inset-0 z-0">
     <img src="/bg-1.png" alt="Background" className="w-full h-full object-cover" />
   </div>
 
   {/* Overlay escura */}
-  <div className="absolute inset-0 bg-black/80 z-10"></div>
+  <div className="absolute inset-0 bg-black/70 z-10"></div>
 
-  {/* Conteúdo principal */}
-  <div className="relative z-20 text-left px-4 max-w-full md:max-w-2xl mx-auto md:ml-24 mt-12">
-    <h1 className="text-3xl md:text-5xl font-space-bold text-[#fafafa] mb-4">
+  {/* Conteúdo principal - TEXTO */}
+  <div className="relative z-20 text-left px-4 max-w-full md:max-w-2xl mx-auto md:ml-24 mt-12 md:mt-0">
+    <h1 className="text-3xl md:text-5xl font-space-bold text-[#fafafa] mt-16 md:mt-8 mb-4">
       Liberte Seu <span className="text-[#05a6b5]">Potencial</span>
     </h1>
 
     <p className="text-base md:text-lg font-space text-[#fafafa]/90 mb-6">
-      Descubra a <span className="font-space-bold text-[#05a6b5]">melhor versão de si mesmo</span> com treinos personalizados, orientação profissional e resultados reais.<br></br>
+      Descubra a <span className="font-space-bold text-[#05a6b5]">melhor versão de si mesmo</span> com treinos personalizados, orientação profissional e resultados reais.<br />
       Chegou a hora de <span className="font-space-bold text-[#05a6b5]">transformar seu corpo e sua mente.</span>
     </p>
 
@@ -100,43 +100,48 @@ export default function Home() {
     <div className="space-y-4 mb-10">
       <div className="flex items-start space-x-3">
         <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
-        <div className="text-white">
-          <p className="font-space font-bold">Acompanhamento individualizado para resultados mais rápidos e eficazes</p>
-        </div>
-      </div>
-
-      <div className="flex items-start space-x-3">
-        <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
-        <div className="text-white">
-          <p className="font-space font-bold">Treinos, nutrição e suporte adaptados à sua rotina e objetivos.</p>
-        </div>
+        <p className="text-white font-space font-bold">Acompanhamento individualizado para resultados mais rápidos e eficazes</p>
       </div>
       <div className="flex items-start space-x-3">
         <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
-        <div className="text-white">
-          <p className="font-space font-bold">Metodologia testada para queimar gordura, ganhar massa e manter o foco.</p>
-        </div>
+        <p className="text-white font-space font-bold">Treinos, nutrição e suporte adaptados à sua rotina e objetivos.</p>
       </div>
       <div className="flex items-start space-x-3">
         <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
-        <div className="text-white">
-          <p className="font-space font-bold">Metodologia testada para queimar gordura, ganhar massa e manter o foco.</p>
-        </div>
+        <p className="text-white font-space font-bold">Metodologia testada para queimar gordura, ganhar massa e manter o foco.</p>
+      </div>
+      <div className="flex items-start space-x-3">
+        <CircleCheck className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
+        <p className="text-white font-space font-bold">Metodologia testada para queimar gordura, ganhar massa e manter o foco.</p>
       </div>
 
-    <p className="text-base md:text-lg font-space text-[#fafafa]/90 mb-6">
-      Sem <span className="font-bold">achismos:</span> <span className="font-space-bold text-[#05a6b5]">ciência, experiência e motivação</span> juntos com você em cada etapa.
-    </p>
-
+      <p className="text-base md:text-lg font-space text-[#fafafa]/90 mb-6">
+        Sem <span className="font-bold">achismos:</span> <span className="font-space-bold text-[#05a6b5]">ciência, experiência e motivação</span> juntos com você em cada etapa.
+      </p>
     </div>
 
     {/* Botão com ícone */}
-    <a href="#servicos">
-    <button className="bg-[#05a6b5] hover:bg-[#05a6b5]/90 text-neutral-950 font-space-bold font-semibold py-4 px-6 rounded-xl text-base transition-all transform hover:scale-105 flex items-center gap-2">
+    <button
+      onClick={() => {
+        const target = document.getElementById('servicos');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }}
+      className="bg-[#05a6b5] hover:bg-[#05a6b5]/90 text-neutral-950 font-space-bold font-semibold py-4 px-6 rounded-xl text-base transition-all transform hover:scale-105 flex items-center gap-2"
+    >
       <BicepsFlexed className="w-5 h-5" />
       COMECE SUA EVOLUÇÃO
     </button>
-    </a>
+  </div>
+
+  {/* IMAGEM - lado direito no desktop */}
+  <div className="relative z-20 md:mr-24 mb-12 md:mb-0 w-full md:w-1/2 px-6">
+    <img
+      src="/imagem-lateral.png"
+      alt="Matheus Radunz"
+      className="w-full h-auto rounded-2xl shadow-lg"
+    />
   </div>
 
   {/* Ícone animado */}
@@ -145,6 +150,7 @@ export default function Home() {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
     </svg>
   </div>
+
   {/* Camada de desfoque final suavizada */}
   <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent via-black/30 to-black/90 z-20 pointer-events-none" />
 </section>
@@ -159,16 +165,16 @@ export default function Home() {
               </h2>
               <p className="text-[#05a6b5] font-space-bold mb-6">Professor - CREF 032983 -G/SC</p>
               <p className="font-space text-lg text-[#ffffff] mb-6">
-                Com mais de 10 anos de experiência, sou especializado em transformação corporal, 
-                musculação e condicionamento físico. Meu objetivo é ajudar você a alcançar o 
-                melhor da sua forma física.
+                Com mais de <span className="font-bold bg-[#05a6b5] text-white">8 anos de experiência</span>, sou especializado em <span className="font-bold">transformação corporal, 
+                musculação e condicionamento físico</span>. Meu objetivo é ajudar você a <span className="font-bold">alcançar&nbsp;  
+                <span className="font-bold bg-[#05a6b5] text-white">o melhor</span> da sua forma física</span>.
               </p>
               <ul className="font-space space-y-3">
                 <li className="flex items-center">
                   <div className="flex items-start space-x-3">
                     <Medal className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
                     <div className="text-white">
-                      <p className="font-bold">Certificado em Cinesiologia e Biomecânica</p>
+                      <p className="font-bold">Certificado em <u>Cinesiologia e Biomecânica</u></p>
                     </div>
                   </div>
                 </li>
@@ -176,7 +182,7 @@ export default function Home() {
                   <div className="flex items-start space-x-3">
                     <Medal className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
                     <div className="text-white">
-                      <p className="font-bold">Certificado em Métodos de Treinamento Avançado</p>
+                      <p className="font-bold">Certificado em <u>Métodos de Treinamento Avançado</u></p>
                     </div>
                   </div>
                 </li>
@@ -184,7 +190,7 @@ export default function Home() {
                   <div className="flex items-start space-x-3">
                     <Medal className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
                     <div className="text-white">
-                      <p className="font-bold">Certificado em Musculação Avançada e Avaliação Postural</p>
+                      <p className="font-bold">Certificado em <u>Musculação Avançada e Avaliação Postural</u></p>
                     </div>
                   </div>
                 </li>
@@ -192,7 +198,7 @@ export default function Home() {
                   <div className="flex items-start space-x-3">
                     <Medal className="text-[#05a6b5] w-6 h-6 mt-1 flex-shrink-0" />
                     <div className="text-white">
-                      <p className="font-bold">Certificado em Anatomia Palpatória e Liberação Miofascial e Reabilitação de Lesões</p>
+                      <p className="font-bold">Certificado em <u>Anatomia Palpatória e Liberação Miofascial e Reabilitação de Lesões</u></p>
                     </div>
                   </div>
                 </li>
@@ -239,18 +245,24 @@ export default function Home() {
     <div className="p-6">
       <div className='flex gap-2'>
       <Dumbbell className="w-6 h-6 text-[#05a6b5]"/>
-      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Seca Total</h3>
+      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Hipertrofia</h3>
       </div>
       <p className="font-space text-[#ffffff] mb-4">
         Desenvolva força, massa muscular e definição com um <span className="font-bold">plano de hipertrofia eficiente e personalizado.</span><br></br>
         Treinos focados, nutrição orientada e acompanhamento contínuo para você atingir o seu potencial máximo.
       </p>
       <div className="col-span-full flex justify-center mt-4">
-        <a href="#servicos">
-        <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
-          QUERO EVOLUIR
-        </button>
-        </a>
+<button
+  onClick={() => {
+    const target = document.getElementById('servicos');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }}
+  className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition"
+>
+  QUERO EVOLUIR
+</button>
       </div>
     </div>
   </div>
@@ -270,18 +282,24 @@ export default function Home() {
     <div className="p-6">
       <div className='flex gap-2'>
       <Apple className="w-6 h-6 text-[#05a6b5]"/>
-      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Seca Total</h3>
+      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Emagrecimento</h3>
       </div>
       <p className="font-space text-[#ffffff] mb-4">
         Emagreça com <span className="font-bold">saúde, segurança e resultados visíveis</span> em poucas semanas.<br></br>
         Estratégias comprovadas de treino e alimentação para queimar gordura, manter massa magra e transformar seu corpo.
       </p>
       <div className="col-span-full flex justify-center mt-4">
-        <a href="#servicos">
-        <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
-          QUERO EVOLUIR
-        </button>
-        </a>
+<button
+  onClick={() => {
+    const target = document.getElementById('servicos');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }}
+  className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition"
+>
+  QUERO EVOLUIR
+</button>
       </div>
     </div>
   </div>
@@ -301,18 +319,24 @@ export default function Home() {
     <div className="p-6">
       <div className='flex gap-2'>
       <HeartPulse className="w-6 h-6 text-[#05a6b5]"/>
-      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Seca Total</h3>
+      <h3 className="text-2xl font-space font-bold text-[#ffffff] mb-3">Recuperação</h3>
       </div>
       <p className="font-space text-[#ffffff] mb-4">
         Programa de reabilitação e funcional para idosos ou pessoas com lesões.<br></br>
         Foco em <span className="font-bold">mobilidade, equilíbrio, fortalecimento e qualidade de vida</span> com segurança e suporte total.
       </p>
       <div className="col-span-full flex justify-center mt-4">
-        <a href="#servicos">
-        <button className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition">
-          QUERO EVOLUIR
-        </button>
-        </a>
+<button
+  onClick={() => {
+    const target = document.getElementById('servicos');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }}
+  className="font-space bg-[#05a6b5] text-black font-bold px-6 py-3 rounded-xl hover:brightness-90 transition"
+>
+  QUERO EVOLUIR
+</button>
       </div>
     </div>
   </div>
@@ -322,7 +346,7 @@ export default function Home() {
 <section id="transformacoes" className="py-20 bg-[#000000] overflow-hidden">
   <div className="max-w-7xl mx-auto px-4">
     <h2 className="text-4xl md:text-5xl font-space font-bold text-[#ffffff] text-center mb-12">
-      Transformações <span className="text-[#05a6b5]">Reais</span>
+      TRANSFORMAÇÕES <span className="text-[#05a6b5]">REAIS</span>
     </h2>
 
     <div className="relative max-w-4xl mx-auto">
@@ -366,7 +390,7 @@ export default function Home() {
                 3 Meses de Evolução
               </h3>
               <p className="text-[#cccccc] text-center mb-6">
-                Resultado impressionante com acompanhamento alimentar e treinos personalizados.
+                Resultado impressionante com acompanhamento alimentar e treinos assistidos na Consultoria Personalizada.
               </p>
 
               <div className="relative h-[400px] md:h-[600px] bg-gray-200 rounded-lg overflow-hidden">
@@ -455,7 +479,7 @@ export default function Home() {
       <section id="servicos" className="py-20 bg-[#000000] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="font-space text-4xl md:text-5xl font-bold text-[#fafafa] text-center mb-12">
-            Planos Desenvolvidos Pensando Na Sua <span className="text-[#05a6b5]">Evolução</span>
+            PLANOS DESENVOLVIDOS PENSANDO NA SUA <span className="text-[#05a6b5]">EVOLUÇÃO</span>
           </h2>
           <div className="grid md:grid-cols-1 gap-8">
 
@@ -508,16 +532,20 @@ export default function Home() {
   </div>
 
   {/* Planos */}
-  <div className="font-space grid md:grid-cols-3 gap-6">
+  <div className="font-space grid md:grid-cols-4 gap-6">
     {[
-      { label: "MENSAL", value: "3x R$ 00,00", type: "MENSAL" },
-      { label: "TRIMESTRAL", value: "6x R$ 00,00", type: "TRIMESTRAL" },
-      { label: "SEMESTRAL", value: "12x R$ 00,00", type: "SEMESTRAL" },
+      { label: "MENSAL", value: "R$ 149,99", type: "MENSAL" },
+      { label: "TRIMESTRAL", value: "3x R$ 129,99", type: "TRIMESTRAL" },
+      { label: "SEMESTRAL", value: "6x R$ 109,99", type: "SEMESTRAL" },
+      { label: "ANUAL", value: "12x R$ 99,99", type: "ANUAL" },
     ].map((plan, i) => (
+      
+      
       <div
         key={i}
         className="bg-[#141414] border border-[#333] rounded-xl p-6 flex flex-col items-center text-center shadow-xl"
       >
+
         <p className="text-sm uppercase font-semibold text-[#05a6b5] mb-2">
           {plan.label}
         </p>
@@ -571,13 +599,14 @@ export default function Home() {
 <section id="planos" className="relative py-20 bg-[#000000] overflow-hidden">
   <div className="max-w-7xl mx-auto px-4">
     <h2 className="text-4xl md:text-5xl font-space font-bold text-[#fafafa] text-center mb-12">
-      Escolha Seu Plano
+      ESCOLHA SEU <span className="bg-[#05a6b5]">PLANO IDEAL</span>
     </h2>
-    <div className="text-white font-space grid md:grid-cols-3 gap-6">
+    <div className="text-white font-space grid md:grid-cols-4 gap-6">
       {[
-        { label: "MENSAL", value: "3x R$ 00,00", type: "MENSAL" },
-        { label: "TRIMESTRAL", value: "6x R$ 00,00", type: "TRIMESTRAL" },
-        { label: "SEMESTRAL", value: "12x R$ 00,00", type: "SEMESTRAL" },
+        { label: "MENSAL", value: "R$ 149,99", type: "MENSAL", link: "https://invoice.infinitepay.io/plans/matheusradunz/1RU6xruHDV" },
+        { label: "TRIMESTRAL", value: "3x R$ 129,99", type: "TRIMESTRAL", id1: "R$ 389,97 à vista", link: "https://invoice.infinitepay.io/plans/matheusradunz/ikW2Q2aIz" },
+        { label: "SEMESTRAL", value: "6x R$ 109,99", type: "SEMESTRAL", id2: "R$ 659,94 à vista", link: "https://invoice.infinitepay.io/plans/matheusradunz/ikWF93D4x" },
+        { label: "ANUAL", value: "12x R$ 99,99", type: "ANUAL", id3: "R$ 1.199,88 à vista", link: "https://invoice.infinitepay.io/plans/matheusradunz/1vKj6GMJjJ" },
       ].map((plan, i) => (
         <div
           key={i}
@@ -587,8 +616,9 @@ export default function Home() {
             {plan.label}
           </p>
           <h3 className="font-space text-3xl font-bold mb-2">{plan.value}</h3>
+          <p className="font-space text-gray-400 text-sm mb-4">{plan.id1 || plan.id2 || plan.id3}</p>
           <p className="font-space text-gray-400 text-sm mb-4">Assinatura {plan.type}</p>
-          
+
           <div className="text-left space-y-2 w-full mb-6">
             {[
               "Treinos personalizados via aplicativo",
@@ -604,7 +634,10 @@ export default function Home() {
             ))}
           </div>
 
-          <button className="font-space w-full bg-[#05a6b5] text-black font-bold py-3 rounded-xl hover:brightness-90 transition">
+          <button
+            onClick={() => window.location.href = plan.link}
+            className="font-space w-full bg-[#05a6b5] text-black font-bold py-3 rounded-xl hover:brightness-90 transition"
+          >
             QUERO EVOLUIR
           </button>
           <p className="text-xs text-gray-400 mt-3">
@@ -620,7 +653,7 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-r from-[#171717] to-[#05a6b5] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-space font-bold text-[#ffffff] text-center mb-12">
-            O Que Dizem Nossos Alunos
+            FEEDBACKS DOS ALUNOS
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-[#141414] border border-[#333] rounded-xl p-6 shadow-lg">
@@ -631,10 +664,11 @@ export default function Home() {
                   </svg>
                 ))}
               </div>
+              <p className="font-space font-bold text-[#ffffff]">Christiane</p>
+              <p className="font-space text-[#ffffff] mb-6">34 anos</p>             
               <p className="font-space text-white mb-4">
-                &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat et mauris a porta.&quot;
+                &quot;Matheus! Gostaria de te agradecer sinceramente pelo excelente trabalho que vem realizando. As dores na minha lombar diminuíram muito desde que comecei a treinar sob sua orientação, e isso impactou diretamente na minha qualidade de vida. Seu profissionalismo e atenção fazem toda a diferença. Parabéns e muito obrigado!✨🙏&quot;
               </p>
-              <p className="font-space font-bold text-[#ffffff]">Lorem ipsum</p>
             </div>
 
             <div className="bg-[#141414] border border-[#333] rounded-xl p-6 shadow-lg">
@@ -671,8 +705,8 @@ export default function Home() {
       {/* FAQ Section */}
 <section className="py-20 bg-[#000000] overflow-hidden">
   <div className="max-w-4xl mx-auto px-4">
-    <h2 className="font-space text-4xl md:text-5xl font-bold text-[#05a6b5] text-center mb-12">
-      Perguntas Frequentes
+    <h2 className="font-space text-4xl md:text-5xl font-bold text-center mb-12">
+      <span className="bg-[#05a6b5] text-white">PERGUNTAS FREQUENTES</span>
     </h2>
     <div className="space-y-6">
       <div className="p-[1px] rounded-lg bg-gradient-to-br from-black to-[#05a6b5]">
@@ -711,17 +745,6 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="p-[1px] rounded-lg bg-gradient-to-br from-black to-[#05a6b5]">
-        <div className="bg-[#141414] rounded-lg p-6">
-          <h3 className="font-space text-xl font-bold text-[#fafafa] mb-3">
-            O acompanhamento nutricional está incluído?
-          </h3>
-          <p className="font-space text-[#fafafa]/80">
-            Nos planos Premium e VIP sim! No plano básico, oferecemos orientações gerais 
-            sobre alimentação saudável.
-          </p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -770,22 +793,9 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="font-space text-[#fafafa] font-bold mb-4">Contato</h4>
-              <ul className="font-space space-y-2 text-gray-400">
-                <li>📧 contato@matheusradunz.com</li>
-                <li>📱 (47) 99158-7307</li>
-                <li>📍 Penha, SC</li>
-              </ul>
-            </div>
-            <div>
               <h4 className="font-space text-[#fafafa] font-bold mb-4">Redes Sociais</h4>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-[#05a6b5]">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-[#05a6b5]">
+                <a href="https://www.instagram.com/matheusradunzz/" className="text-gray-400 hover:text-[#05a6b5]">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/>
                   </svg>
@@ -803,7 +813,7 @@ export default function Home() {
     </main>
     {/* Botão flutuante WhatsApp */}
 <a
-  href="https://wa.me/554791587307?text=Olá%20Matheus,%20gostaria%20de%20iniciar%20a%20minha%20evolução!"
+  href="https://wa.me/554791587307?text=Olá%20Matheus,%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20para%20iniciar%20a%20minha%20evolução!"
   target="_blank"
   rel="noopener noreferrer"
   className="fixed bottom-6 right-6 z-50 text-white rounded-full p-4 shadow-lg hover:scale-105 transition-all"
