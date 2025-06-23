@@ -509,7 +509,7 @@ export default function Home() {
   </div>
 
   {/* Benefícios */}
-  <div className="bg-[#191919] rounded-xl p-6 space-y-4">
+  <div className=" rounded-xl  space-y-4">
     <h3 className="font-space text-2xl font-bold text-[#05a6b5]">Vou acompanhar de perto:</h3>
     <div className="font-space-bold grid md:grid-cols-2 gap-4">
       {[
@@ -655,6 +655,8 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-space font-bold text-[#ffffff] text-center mb-12">
             FEEDBACKS DOS ALUNOS
           </h2>
+
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-[#141414] border border-[#333] rounded-xl p-6 shadow-lg">
               <div className="flex mb-4">
@@ -679,6 +681,25 @@ export default function Home() {
                   </svg>
                 ))}
               </div>
+              <p className="font-space font-bold text-[#ffffff]">Luiz</p>
+              <p className="font-space text-[#ffffff] mb-4">22 anos</p>             
+              <p className="font-space text-white mb-4">
+                &quot;Fala mano! Tudo certo?
+
+Só queria te passar que desde que iniciamos os treinos muita coisa mudou, não apenas o corpo mas também a mente.
+Sinto que eu realmente aprendi a treinar com os seus ensinamentos e técnicas, ja fazia academia ha no mínimo 3 anos e não via o resultado que eu vi em 3 meses sob sua orientação.
+Sou imensamente grato não só pelo treino mas também pela resenha, você é um cara extremamente gente boa que sabe conversar e anima o espaço que está, tamo junto! Eterno promotor dos seus serviços e da sua pessoa.&quot;
+              </p>
+            </div>
+
+            <div className="bg-[#141414] border border-[#333] rounded-xl p-6 shadow-lg">
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-[#05a6b5] fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
               <p className="font-space font-bold text-[#ffffff]">Cleide</p>
               <p className="font-space text-[#ffffff] mb-4">45 anos</p>             
               <p className="font-space text-white mb-4">
@@ -686,7 +707,7 @@ export default function Home() {
 Gosto da maneira como você personaliza os treinos, sempre pensando nas minhas necessidades e objetivos.&quot;
               </p>
             </div>
-                        </div>
+            </div>
         </div>
       </section>
 
