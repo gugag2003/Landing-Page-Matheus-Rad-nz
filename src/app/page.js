@@ -28,6 +28,24 @@ export default function Home() {
     setSliderPosition(Number(e.target.value))
   }
 
+  const testimonials = [
+  {
+    name: 'Luiz',
+    beforeLink: '/antes-1-luiz.jpeg',
+    afterLink: '/depois-1-luiz.jpeg',
+    duration: '3 Meses',
+    description: 'Resultado impressionante com acompanhamento alimentar e treinos assistidos na Consultoria Personalizada.',
+  },
+  {
+    name: 'Ana',
+    beforeLink: '/antes-1-w.jpeg',
+    afterLink: '/depois-1-w.jpeg',
+    duration: '4 Meses',
+    description: 'Superação com disciplina e treinos personalizados semanais.',
+  },
+  // Adicione mais testemunhos aqui
+];
+
   
 
   return (
@@ -76,14 +94,14 @@ export default function Home() {
       </header>
 
 {/* Hero Section */}
-<section id="home" className="relative h-250 min-h-screen flex flex-col md:flex-row items-center justify-between bg-gradient-to-br from-[#171717] to-[#05a6b5] overflow-hidden">
+<section id="home" className="relative h-255 min-h-screen flex flex-col md:flex-row items-center justify-between bg-gradient-to-br from-[#171717] to-[#05a6b5] overflow-hidden">
   {/* Imagem de fundo abaixo da overlay */}
   <div className="absolute inset-0 z-0">
     <img src="/bg-1.png" alt="Background" className="w-full h-full object-cover" />
   </div>
 
   {/* Overlay escura */}
-  <div className="absolute inset-0 bg-black/70 z-10"></div>
+  <div className="absolute inset-0 bg-black/80 z-10"></div>
 
   {/* Conteúdo principal - TEXTO */}
   <div className="relative z-20 text-left px-4 max-w-full md:max-w-2xl mx-auto md:ml-24 mt-12 md:mt-0">
@@ -136,7 +154,7 @@ export default function Home() {
   </div>
 
   {/* IMAGEM - lado direito no desktop */}
-  <div className="relative z-20 md:mr-24 mb-12 md:mb-0 w-full md:w-1/2 px-6">
+  <div className="relative z-20 md:mr-24 mb-12 md:mb-0 w-full px-12 md:px-12">
     <img
       src="/imagem-lateral.png"
       alt="Matheus Radunz"
@@ -214,7 +232,7 @@ export default function Home() {
             </div>
             <div className="relative bg-gray-300 rounded-lg overflow-hidden">
               <Image 
-                src="/matheus-4.png"
+                src="/matheus-3.jpg"
                 alt="Matheus Radünz"
                 layout="responsive"
                 width={100}
@@ -351,126 +369,129 @@ export default function Home() {
 
     <div className="relative max-w-4xl mx-auto">
       {/* Botões de navegação para desktop (fora do card) */}
-      <div className="hidden md:flex justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 z-10 px-4">
+      <div className="hidden md:flex justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 z-10 px-0">
         <button
           ref={prevRef}
-          className="bg-[#05a6b5] text-white rounded-full w-12 aspect-square flex items-center justify-center shadow-lg"
+          className="bg-[#05a6b5] text-white rounded-xl w-12 aspect-square flex items-center justify-center shadow-lg"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button
           ref={nextRef}
-          className="bg-[#05a6b5] text-white rounded-full w-12 aspect-square flex items-center justify-center shadow-lg"
+          className="bg-[#05a6b5] text-white rounded-xl w-12 aspect-square flex items-center justify-center shadow-lg"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
       </div>
 
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={1}
-        allowTouchMove={false}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        modules={[Navigation]}
-        onBeforeInit={(swiper) => {
-          //@ts-ignore
-          swiper.params.navigation.prevEl = prevRef.current
-          //@ts-ignore
-          swiper.params.navigation.nextEl = nextRef.current
-        }}
-        className="mx-auto"
-      >
-        {[1, 2].map((_, index) => (
-          <SwiperSlide key={index}>
-            <div className="bg-[#111111] p-6 rounded-2xl shadow-xl">
-              <h3 className="text-2xl text-white font-space font-bold mb-2 text-center">
-                3 Meses de Evolução
-              </h3>
-              <p className="text-[#cccccc] text-center mb-6">
-                Resultado impressionante com acompanhamento alimentar e treinos assistidos na Consultoria Personalizada.
-              </p>
+      
 
-              <div className="relative h-[400px] md:h-[600px] bg-gray-200 rounded-lg overflow-hidden">
-                {/* Imagem Antes */}
-                <div className="absolute inset-0">
-                  <img
-                    src="/antes-1-luiz.jpeg"
-                    alt="Antes"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-space text-white text-2xl font-bold drop-shadow-lg">ANTES</span>
-                  </div>
-                </div>
+<Swiper
+  spaceBetween={20}
+  slidesPerView={1}
+  allowTouchMove={false}
+  navigation={{
+    prevEl: prevRef.current,
+    nextEl: nextRef.current,
+  }}
+  modules={[Navigation]}
+  onBeforeInit={(swiper) => {
+    //@ts-ignore
+    swiper.params.navigation.prevEl = prevRef.current;
+    //@ts-ignore
+    swiper.params.navigation.nextEl = nextRef.current;
+  }}
+  className="mx-auto"
+>
+  {testimonials.map((person, index) => (
+    <SwiperSlide key={index}>
+      <div className="bg-[#111111] p-6 rounded-2xl shadow-xl">
+        <h3 className="text-2xl text-white font-space font-bold mb-2 text-center">
+          <span className="bg-[#05a6b5]">{person.duration}</span> de Evolução
+        </h3>
+        <p className="text-[#cccccc] text-center mb-6">
+          {person.description}
+        </p>
 
-                {/* Imagem Depois */}
-                <div
-                  className="absolute inset-0 overflow-hidden"
-                  style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
-                >
-                  <img
-                    src="/depois-1-luiz.jpeg"
-                    alt="Depois"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-space text-white text-2xl font-bold drop-shadow-lg">DEPOIS</span>
-                  </div>
-                </div>
-
-                {/* Linha divisória */}
-                <div
-                  className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize"
-                  style={{ left: `${sliderPosition}%` }}
-                >
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-2">
-                    <svg className="w-6 h-6 text-[#171717]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M8 9l4-4 4 4m0 6l-4 4-4-4"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={sliderPosition}
-                  onChange={handleSliderChange}
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize"
-                />
-              </div>
-
-              <p className="font-space text-center text-[#ffffff] mt-4">
-                Arraste para ver a transformação
-              </p>
+        <div className="relative h-[400px] md:h-[600px] bg-gray-200 rounded-lg overflow-hidden">
+          {/* Imagem Antes */}
+          <div className="absolute inset-0">
+            <img
+              src={person.beforeLink}
+              alt={`Antes de ${person.name}`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="font-space text-white text-2xl font-bold drop-shadow-lg">ANTES</span>
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          </div>
 
-      {/* Botões no mobile (funcionais e fora do swiper) */}
+          {/* Imagem Depois */}
+          <div
+            className="absolute inset-0 overflow-hidden"
+            style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+          >
+            <img
+              src={person.afterLink}
+              alt={`Depois de ${person.name}`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="font-space text-white text-2xl font-bold drop-shadow-lg">DEPOIS</span>
+            </div>
+          </div>
+
+          {/* Linha divisória */}
+          <div
+            className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize"
+            style={{ left: `${sliderPosition}%` }}
+          >
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl p-2">
+              <svg className="w-6 h-6 text-[#171717]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={sliderPosition}
+            onChange={handleSliderChange}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize"
+          />
+        </div>
+
+        <p className="font-space text-center text-[#ffffff] mt-4">
+          Arraste para ver a transformação
+        </p>
+      </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
+
+            {/* Botões no mobile (funcionais e fora do swiper) */}
       <div className="flex md:hidden justify-center gap-4 mt-6">
         <button
           ref={prevRef}
-          className="bg-[#05a6b5] text-white rounded-full w-10 aspect-square flex items-center justify-center shadow"
+          className="bg-[#05a6b5] text-white rounded-xl w-10 aspect-square flex items-center justify-center shadow"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           ref={nextRef}
-          className="bg-[#05a6b5] text-white rounded-full w-10 aspect-square flex items-center justify-center shadow"
+          className="bg-[#05a6b5] text-white rounded-xl w-10 aspect-square flex items-center justify-center shadow"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
       </div>
+
     </div>
   </div>
 </section>
@@ -499,12 +520,7 @@ export default function Home() {
       </p>
     </div>
     <div className="w-full md:w-[380px] rounded-xl overflow-hidden shadow-lg">
-      <iframe
-        className="w-full aspect-video rounded-xl"
-        src="https://www.youtube.com/embed/GMNzPDZO7C4?si=gNdq4R5b-jy49Ed4"
-        title="Vídeo"
-        allowFullScreen
-      />
+
     </div>
   </div>
 
@@ -679,26 +695,14 @@ export default function Home() {
                   </svg>
                 ))}
               </div>
-              <p className="font-space text-[#ffffff] mb-4">
-                &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat et mauris a porta.&quot;
+              <p className="font-space font-bold text-[#ffffff]">Cleide</p>
+              <p className="font-space text-[#ffffff] mb-6">45 anos</p>             
+              <p className="font-space text-white mb-4">
+                &quot;Matheus, você é um excelente profissional, dedicado e comprometido. Muito atencioso durante os treinos, sempre incentivando e ensinando a forma correta de fazer os exercícios.
+Gosto da maneira como você personaliza os treinos, sempre pensando nas minhas necessidades e objetivos.&quot;
               </p>
-              <p className="font-space font-bold text-[#ffffff]">Lorem ipsum</p>
             </div>
-
-            <div className="bg-[#141414] border border-[#333] rounded-xl p-6 shadow-lg">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-[#05a6b5] fill-current" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="font-space text-[#ffffff] mb-4">
-                &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat et mauris a porta.&quot;
-              </p>
-              <p className="font-space font-bold text-[#ffffff]">Lorem ipsum</p>
-            </div>
-          </div>
+                        </div>
         </div>
       </section>
 
