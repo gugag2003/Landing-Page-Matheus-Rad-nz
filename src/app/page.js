@@ -7,8 +7,23 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default function Home() {
+
+  const handleClick = () => {
+    const target = document.getElementById(selected.id);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  
   const [sliderPosition, setSliderPosition] = useState(50)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -45,6 +60,15 @@ export default function Home() {
   },
   // Adicione mais testemunhos aqui
 ];
+
+const planos = [
+  { label: "MENSAL", value: "R$ 149,99", type: "MENSAL", id: "mensal" },
+  { label: "TRIMESTRAL", value: "3x R$ 129,99", type: "TRIMESTRAL", id: "trimestral" },
+  { label: "SEMESTRAL", value: "6x R$ 109,99", type: "SEMESTRAL", id: "semestral" },
+  { label: "ANUAL", value: "12x R$ 99,99", type: "ANUAL", id: "anual" },
+];
+
+  const [selected, setSelected] = useState(planos[0]);
 
   
 
@@ -497,7 +521,7 @@ export default function Home() {
         <Dumbbell className="w-8 h-8 text-[#05a6b5]"/>Consultoria Personalizada
       </h2>
       <p className="font-space text-gray-300 text-base md:text-lg">
-        Com mais de 10 anos de experiência, desenvolvi um método exclusivo de acompanhamento que une estratégia, ciência e motivação. Você terá acesso a um plano 100% individualizado, adaptado aos seus objetivos, rotina e limitações.
+        Com mais de 8 anos de experiência, desenvolvi um método exclusivo de acompanhamento que une estratégia, ciência e motivação. Você terá acesso a um plano 100% individualizado, adaptado aos seus objetivos, rotina e limitações.
       </p>
       <p className="font-space-bold text-gray-300 text-base md:text-lg">
         Treinamento com propósito. Nutrição com estratégia. Evolução com resultado.
@@ -532,44 +556,48 @@ export default function Home() {
   </div>
 
   {/* Planos */}
-  <div className="font-space grid md:grid-cols-4 gap-6">
-    {[
-      { label: "MENSAL", value: "R$ 149,99", type: "MENSAL" },
-      { label: "TRIMESTRAL", value: "3x R$ 129,99", type: "TRIMESTRAL" },
-      { label: "SEMESTRAL", value: "6x R$ 109,99", type: "SEMESTRAL" },
-      { label: "ANUAL", value: "12x R$ 99,99", type: "ANUAL" },
-    ].map((plan, i) => (
-      
-      
-      <div
-        key={i}
-        className="bg-[#141414] border border-[#333] rounded-xl p-6 flex flex-col items-center text-center shadow-xl"
-      >
+  <div className="font-space max-w-xl mx-auto bg-[#141414] border border-[#333] rounded-xl p-6 flex flex-col items-center text-center shadow-xl">
+      <label className="text-sm uppercase font-semibold text-[#05a6b5] mb-2">
+        Selecione o Plano
+      </label>
 
-        <p className="text-sm uppercase font-semibold text-[#05a6b5] mb-2">
-          {plan.label}
-        </p>
-        <h3 className="font-space text-3xl font-bold mb-2">{plan.value}</h3>
-        <p className="font-space text-gray-400 text-sm mb-4">Assinatura {plan.type}</p>
-        <button onClick={() => {
-    const target = document.getElementById('planos');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  }} className="font-space w-full bg-[#05a6b5] text-black font-bold py-3 rounded-xl hover:brightness-90 transition">
-          QUERO EVOLUIR
-        </button>
-        <p className="text-xs text-gray-400 mt-3">
-          Acesso imediato • Suporte pessoal Matheus Radünz
-        </p>
-      </div>
+<Select
+  value={selected.type}
+  onValueChange={(value) =>
+    setSelected(planos.find((p) => p.type === value) || planos[0])
+}
+>
+  <SelectTrigger className="w-full mb-4 text-center">
+    <SelectValue placeholder="Selecione o plano" />
+  </SelectTrigger>
+  <SelectContent>
+    {planos.map((plan, i) => (
+      <SelectItem key={i} value={plan.type}>
+        {plan.label} - {plan.value}
+      </SelectItem>
     ))}
-  </div>
-  </div>
-  
+  </SelectContent>
+</Select>
 
+      <h3 className="font-space text-3xl font-bold mb-2">{selected.value}</h3>
+      <p className="font-space text-gray-400 text-sm mb-4">
+        Assinatura {selected.type}
+      </p>
+
+      <button
+        onClick={handleClick}
+        className="font-space w-full bg-[#05a6b5] text-black font-bold py-3 rounded-xl hover:brightness-90 transition"
+      >
+        QUERO EVOLUIR
+      </button>
+
+      <p className="text-xs text-gray-400 mt-3">
+        Acesso imediato • Suporte pessoal Matheus Radünz
+      </p>
+    </div>
+    </div>  
+    </div>
           </div>
-        </div>
       </section>
 
       {/* CTA Meio */}
@@ -603,21 +631,53 @@ export default function Home() {
     </h2>
     <div className="text-white font-space grid md:grid-cols-4 gap-6">
       {[
-        { label: "MENSAL", value: "R$ 149,99", type: "MENSAL", link: "https://invoice.infinitepay.io/plans/matheusradunz/1RU6xruHDV" },
-        { label: "TRIMESTRAL", value: "3x R$ 129,99", type: "TRIMESTRAL", id1: "R$ 389,97 à vista", link: "https://invoice.infinitepay.io/plans/matheusradunz/ikW2Q2aIz" },
-        { label: "SEMESTRAL", value: "6x R$ 109,99", type: "SEMESTRAL", id2: "R$ 659,94 à vista", link: "https://invoice.infinitepay.io/plans/matheusradunz/ikWF93D4x" },
-        { label: "ANUAL", value: "12x R$ 99,99", type: "ANUAL", id3: "R$ 1.199,88 à vista", link: "https://invoice.infinitepay.io/plans/matheusradunz/1vKj6GMJjJ" },
+        {
+          label: "MENSAL",
+          value: "R$ 149,99",
+          type: "MENSAL",
+          id: "mensal",
+          link: "https://invoice.infinitepay.io/plans/matheusradunz/1RU6xruHDV",
+        },
+        {
+          label: "TRIMESTRAL",
+          value: "3x R$ 129,99",
+          type: "TRIMESTRAL",
+          id: "trimestral",
+          id1: "R$ 389,97 à vista",
+          link: "https://invoice.infinitepay.io/plans/matheusradunz/ikW2Q2aIz",
+        },
+        {
+          label: "SEMESTRAL",
+          value: "6x R$ 109,99",
+          type: "SEMESTRAL",
+          id: "semestral",
+          id2: "R$ 659,94 à vista",
+          link: "https://invoice.infinitepay.io/plans/matheusradunz/ikWF93D4x",
+        },
+        {
+          label: "ANUAL",
+          value: "12x R$ 99,99",
+          type: "ANUAL",
+          id: "anual",
+          id3: "R$ 1.199,88 à vista",
+          link: "https://invoice.infinitepay.io/plans/matheusradunz/1vKj6GMJjJ",
+        },
       ].map((plan, i) => (
         <div
           key={i}
+          id={plan.id}
           className="bg-[#141414] border border-[#333] rounded-xl p-6 flex flex-col items-center text-center shadow-xl"
         >
           <p className="text-sm uppercase font-semibold text-[#05a6b5] mb-2">
             {plan.label}
           </p>
           <h3 className="font-space text-3xl font-bold mb-2">{plan.value}</h3>
-          <p className="font-space text-gray-400 text-sm mb-4">{plan.id1 || plan.id2 || plan.id3}</p>
-          <p className="font-space text-gray-400 text-sm mb-4">Assinatura {plan.type}</p>
+          <p className="font-space text-gray-400 text-sm mb-4">
+            {plan.id1 || plan.id2 || plan.id3}
+          </p>
+          <p className="font-space text-gray-400 text-sm mb-4">
+            Assinatura {plan.type}
+          </p>
 
           <div className="text-left space-y-2 w-full mb-6">
             {[
@@ -627,7 +687,10 @@ export default function Home() {
               "Correções técnicas e orientações contínuas",
               "Estratégias de treino ajustadas com base no seu progresso",
             ].map((item, idx) => (
-              <div key={idx} className="flex items-start gap-2 text-sm text-[#fafafa]/90">
+              <div
+                key={idx}
+                className="flex items-start gap-2 text-sm text-[#fafafa]/90"
+              >
                 <CircleCheck className="w-5 h-5 text-[#05a6b5] mt-0.5" />
                 <span>{item}</span>
               </div>
@@ -635,7 +698,7 @@ export default function Home() {
           </div>
 
           <button
-            onClick={() => window.location.href = plan.link}
+            onClick={() => (window.location.href = plan.link)}
             className="font-space w-full bg-[#05a6b5] text-black font-bold py-3 rounded-xl hover:brightness-90 transition"
           >
             QUERO EVOLUIR
