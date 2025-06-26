@@ -24,7 +24,7 @@ export const metadata = {
     siteName: 'Matheus Radünz',
     images: [
       {
-        url: '/matheus-preview.png', // coloque a URL completa da imagem
+        url: '/matheus-preview.png',
         width: 1200,
         height: 630,
         alt: 'Matheus Radünz - Personal Trainer',

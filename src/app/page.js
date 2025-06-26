@@ -573,7 +573,7 @@ const planos = [
   <SelectContent>
     {planos.map((plan, i) => (
       <SelectItem key={i} value={plan.type}>
-        {plan.label} - {plan.value}
+        {plan.label}
       </SelectItem>
     ))}
   </SelectContent>
